@@ -24,6 +24,8 @@ class DefaultControllerTest extends WebTestCase
         $crawler = $client->request('GET', '/not/exist/');
         $content = $client->getResponse()->getContent();
 
+        //$data = json_decode($client->getResponse()->getContent(), true);
+        //dump($data);
         $this->assertEquals(404, $client->getResponse()->getStatusCode());
         $this->assertJsonStringEqualsJsonString($content, '{"data":[],"error":1,"error_message":"Not found"}');
     }
