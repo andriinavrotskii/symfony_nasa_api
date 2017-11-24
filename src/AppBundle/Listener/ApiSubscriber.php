@@ -38,7 +38,7 @@ class ApiSubscriber implements EventSubscriberInterface
             $code = 404;
         }
 
-        $event->setResponse($this->getResponce($data, $errorMessage, 1, $code));
+        $event->setResponse($this->getResponce([], $errorMessage, 1, $code));
     }
 
 
