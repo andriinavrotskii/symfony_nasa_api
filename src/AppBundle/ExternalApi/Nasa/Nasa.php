@@ -12,13 +12,19 @@ class Nasa
 {
     protected $container;
 
-
+    /**
+     * Nasa constructor.
+     * @param ContainerInterface $container
+     */
     public function __construct(ContainerInterface $container)
     {
         $this->container = $container;
     }
 
-
+    /**
+     * @return array|GuzzleResponse|mixed
+     * @throws NasaException
+     */
     public function getNeo()
     {
         $startDate = (new \DateTime())
@@ -36,7 +42,11 @@ class Nasa
         return $this->checkAndReturnResponse($this->apiRequest($url));
     }
 
-
+    /**
+     * @param $url
+     * @return mixed|\Psr\Http\Message\ResponseInterface
+     * @throws NasaException
+     */
     protected function apiRequest($url)
     {
         try {
@@ -54,7 +64,11 @@ class Nasa
         }
     }
 
-
+    /**
+     * @param GuzzleResponse $response
+     * @return array|GuzzleResponse|mixed
+     * @throws NasaException
+     */
     protected function checkAndReturnResponse(GuzzleResponse $response)
     {
         if (!$response->getBody()) {
@@ -74,6 +88,5 @@ class Nasa
         }
 
         return $response;
-
     }
 }

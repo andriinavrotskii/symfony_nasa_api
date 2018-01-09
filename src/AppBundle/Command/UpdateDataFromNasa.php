@@ -20,7 +20,11 @@ class UpdateDataFromNasa extends ContainerAwareCommand
             ->setDescription('Update data in DB from NASA API');
     }
 
-
+    /**
+     * @param InputInterface $input
+     * @param OutputInterface $output
+     * @return int|null|void
+     */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         try {
