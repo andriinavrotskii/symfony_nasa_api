@@ -8,7 +8,7 @@
 
 namespace AppBundle\Controller;
 
-use AppBundle\Repository\NeoRepository;
+
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use Doctrine\ORM\ORMException;
@@ -25,6 +25,7 @@ class NeoController extends Controller
 {
     /**
      * @Rest\Get("/hazardous")
+     * @Rest\View(statusCode=200)
      */
     public function hazardousAction()
     {
@@ -39,6 +40,7 @@ class NeoController extends Controller
 
     /**
      * @Rest\Get("/fastest")
+     * @Rest\View(statusCode=200)
      */
     public function fastestAction(Request $request)
     {
