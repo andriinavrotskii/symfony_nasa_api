@@ -3,18 +3,18 @@
 namespace AppBundle\Controller;
 
 use FOS\RestBundle\Controller\FOSRestController;
-use FOS\RestBundle\Controller\Annotations as Rest;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\Routing\Annotation\Route;
 
 class DefaultController extends FOSRestController
 {
     /**
-     * @Rest\Get("/")
-     * @Rest\View(statusCode=200)
+     * @Route("/")
      *
-     * @return array
+     * @return JsonResponse
      */
     public function indexAction()
     {
-        return ['hello' => 'world!'];
+        return new JsonResponse(['hello' => 'world!']);
     }
 }

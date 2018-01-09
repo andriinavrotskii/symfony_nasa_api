@@ -20,7 +20,7 @@ class ApiSubscriber implements EventSubscriberInterface
     public static function getSubscribedEvents()
     {
         return [
-            KernelEvents::EXCEPTION => ['onKernelException', 0],
+//            KernelEvents::EXCEPTION => ['onKernelException', 0],
             KernelEvents::VIEW => ['onKernelView', 100],
         ];
     }
